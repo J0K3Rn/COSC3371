@@ -8,26 +8,18 @@ import Crypto.Cipher
 from Crypto.Cipher import AES
 # END SOLUTION
 
-def debug(a):
-    print(a)
-    print(len(a))
-    print(type(a))
-
 def problem_1():
     with open("cipher1.bin", "rb") as cipher_file:
         cipher_text = cipher_file.read()
 
     # BEGIN SOLUTION
     ivkey = bytes([0] * 16)
-    debug(ivkey)
     key = bytearray(b'')
-    debug(key)
     for i in range(16):
         if i % 2 == 1:
             key.append(2)
         else:
             key.append(1)
-    debug(key)
     cipher = AES.new(key, AES.MODE_CBC, iv=ivkey)
     plain_text = cipher.decrypt(cipher_text)
     # END SOLUTION
@@ -41,8 +33,23 @@ def problem_2():
         cipher_text = cipher_file.read()
 
     # BEGIN SOLUTION
-    modified_cipher_text = cipher_text[:]
-    plain_text = modified_cipher_text
+    modified_cipher_text = bytearray(b'')
+    for i in range(16):
+        modified_cipher_text.append(cipher_text[i+16])
+    for i in range(16, 32):
+        modified_cipher_text.append(cipher_text[i-16])
+    for i in range(32, len(cipher_text)):
+        modified_cipher_text.append(cipher_text[i])
+    
+    ivkey = bytes([0] * 16)
+    key = bytearray(b'')
+    for i in range(16):
+        if i % 2 == 1:
+            key.append(2)
+        else:
+            key.append(1)
+    cipher = AES.new(key, AES.MODE_CBC, iv=ivkey)
+    plain_text = cipher.decrypt(modified_cipher_text)
     # END SOLUTION
 
     with open("plain2.txt", "wb") as plain_file:
@@ -56,7 +63,9 @@ def problem_3():
         other_bmp = message_file.read()
 
     # BEGIN SOLUTION
-    modified_cipher_bmp = cipher_bmp
+    modified_cipher_bmp = bytearray(cipher_bmp)
+    for i in range(1000):
+        modified_cipher_bmp[i] = other_bmp[i]
     # END SOLUTION
 
     with open("cipher3_modified.bmp", "wb") as modified_cipher_file:
