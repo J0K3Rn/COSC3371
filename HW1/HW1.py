@@ -81,7 +81,16 @@ def problem_4():
         cipher_text_b = cipher_file.read()
 
     # BEGIN SOLUTION
-    plain_text_b = cipher_text_b
+    # Covert to bytearray to be mutable
+    plain_text_b = bytearray(cipher_text_b)
+    cipher_text_b = bytearray(cipher_text_b)
+    plain_text_a = bytearray(plain_text_a)
+    cipher_text_a = bytearray(cipher_text_a)
+    key = plain_text_a
+    for i in range(len(key)):
+        key[i] = plain_text_a[i] ^ cipher_text_a[i]
+    for i in range(len(plain_text_b)):
+        plain_text_b[i] = cipher_text_b[i] ^ key[i]
     # END SOLUTION
 
     with open("plain4B.txt", "wb") as plain_file:
@@ -93,9 +102,36 @@ def problem_5():
         cipher_text = cipher_file.read()
 
     # BEGIN SOLUTION
-    plain_text = cipher_text
-    key = bytes([0] * 16)
+    with open("msg1.txt", "rb") as txt:
+        common_text = txt.read()
+        otherBMP = bytearray(common_text)
+    plain_text = bytearray(cipher_text)
+    ivkey = bytes([0] * 16)
+    key = bytearray([0] * 16)
+    found = False
+    for i in range(12):
+        key[0] = i + 1
+        for j in range(32):
+            key[1] = j + 1
+            for k in range(100):
+                key[2] = k
+                cipher = AES.new(key, AES.MODE_CBC, iv=ivkey)
+                plain_text = cipher.decrypt(cipher_text)
+                # Assume True, prove False
+                found = True
+                for l in plain_text:
+                    if plain_text[l] >= 128 or plain_text[l] < 0:
+                        found = False
+                if found:
+                    break
+            if found:
+                break
+        if found:
+            break
     # END SOLUTION
+
+
+# END SOLUTION
 
     with open("plain5.txt", "wb") as plain_file:
         plain_file.write(plain_text)
