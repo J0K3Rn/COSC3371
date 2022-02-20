@@ -102,9 +102,6 @@ def problem_5():
         cipher_text = cipher_file.read()
 
     # BEGIN SOLUTION
-    with open("msg1.txt", "rb") as txt:
-        common_text = txt.read()
-        otherBMP = bytearray(common_text)
     plain_text = bytearray(cipher_text)
     ivkey = bytes([0] * 16)
     key = bytearray([0] * 16)
