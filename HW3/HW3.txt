@@ -1,0 +1,23 @@
+Homework 3 Answers
+
+Question 1: 
+	(1) rrrrrrrrrrrrs
+		or any other variation that starts with r and the 13th character is s
+	(2) Because the variable command is only designated 12 characters, the 13th character overwrites dataset[0] which is used to determine which file to read
+	(3) So it begins...
+Question 2:
+	(1) -54
+	(2) The program might check if user input is above a certain value, but it doesn't account for an integer underflow. Buffer range is from 0-255.
+	(3) I have come here to chew bubblegum and hack programs, and I'm all out of bubblegum.
+Question 3:
+	(1)
+	(2)
+	(3)
+Question 4:
+	(1)
+	(2)
+	(3)
+Question 5:
+	(1)
+	(2)
+	(3)
