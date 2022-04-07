@@ -10,9 +10,10 @@ Question 2:
 	(2) The program might check if user input is above a certain value, but it doesn't account for an integer underflow. Buffer range is from 0-255.
 	(3) I have come here to chew bubblegum and hack programs, and I'm all out of bubblegum.
 Question 3:
-	(1)
-	(2)
-	(3)
+	(1) rsssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+		or any other random variation. Only restriction is first character is a 'r' and the 13th character is a 's'.
+	(2) Have to overflow the 8 bit signed int so it disreguards the length check. 8 bit signed int has max of 127. Have to supply s's (atleast to the 13th character) to overflow the dataset[0] call.
+	(3) Oh, what a bug... what a lovely bug!
 Question 4:
 	(1)
 	(2)
