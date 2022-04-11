@@ -1,0 +1,20 @@
+Homework 4 Answers
+
+Question 1: 
+	(1) '; INSERT INTO users (username, password) VALUES ('username', 'password');--
+	(2) To stop or minimize the risk of SQL injections, you want to sanitize the user input. For starters, you could easily remove ;'s and --'s for user input.
+Question 2:
+	(1) <<scriptscript> alert(document.cookie); </script>
+	(2) Would definetly need to sanitize user input better. Replace the scripts with spaces or simply just replace all <,>'s with spaces instead of looking for specific tags like <script>.
+Question 3:
+	(1) view-source:http://<ip>/index.php?theme=/etc/passwd
+	(2) To fix this sensitive website information from being leaked you should specify all of the themes that are allowed. In short, create a whitelist for the events that can be chosen.
+Question 4:
+	(1)
+	(2)
+Question 5:
+	(1)
+	(2)
+Question 6:
+	(1)
+	(2)
