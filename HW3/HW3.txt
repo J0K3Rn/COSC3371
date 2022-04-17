@@ -21,5 +21,5 @@ Question 4:
 Question 5:
 	(1) %0200x%5$n
 		Or any value that is higher than the formatting %0200x. (Because we need atleast 200 to qualify for permissions)
-	(2) We are able to write to the stack using format string writing since the value is defined before the user input statement. The length of the buffer we give replaces the permission level with $n.
+	(2) We are able to write to the stack using format string writing since the value is defined before the user input statement. The length of the buffer we give replaces the permission level with $n. $4 is the variable minimum_level, $5 is user->authorization_level, and $6 is user->username.
 	(3) Whew, you are finally done with the homework.
