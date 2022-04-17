@@ -10,11 +10,15 @@ Question 3:
 	(1) view-source:http://<ip>/index.php?theme=/etc/passwd
 	(2) To fix this sensitive website information from being leaked you should specify all of the themes that are allowed. In short, create a whitelist for the events that can be chosen.
 Question 4:
-	(1)
-	(2)
+	(1) http://<ip>/gallery.php?removeImage=upload1681766753.jpg;cat+/etc/passwd
+	(2) The removeImage variable would need to be sanitized before executing the rm command. Remove such characters as ;,/, etc.
 Question 5:
-	(1)
-	(2)
+	(1) To do this, simply add file extension .jpg to the end of shellcode.php since the website only goes through with files with the extension of jpg.
+		The "image" (php script) was assigned images/upload671142738.jpg
+		http://<ip>/gallery.php?theme=images/upload671142738.jpg
+		To enable this script after it is on the website:
+		http://<ip>/gallery.php?theme=images/upload671142738.jpg&command=cat+/etc/passwd
+	(2) To avoid this, scrub through the images uploaded by users and sanitize them. You should be able to open the jpg file and read the image contents (rgb values).
 Question 6:
 	(1)
 	(2)
