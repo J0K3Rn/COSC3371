@@ -15,10 +15,11 @@ Question 3:
 	(2) Have to overflow the 8 bit signed int so it disreguards the length check. 8 bit signed int has max of 127. Have to supply s's (atleast to the 13th character) to overflow the dataset[0] call.
 	(3) Oh, what a bug... what a lovely bug!
 Question 4:
-	(1)
-	(2)
-	(3)
+	(1) %7$s
+	(2) Since the secret is allocated before user input we can see what was put on the stack with format string reading. What is given is the answer, but in this case is a pointer which we can easily read to what the string contents are.
+	(3) Your guess was Permission denied: cannot read '/home/student/secret4.txt' ... just kidding, this is actually the solution.
 Question 5:
-	(1)
-	(2)
-	(3)
+	(1) %0200x%5$n
+		Or any value that is higher than the formatting %0200x. (Because we need atleast 200 to qualify for permissions)
+	(2) We are able to write to the stack using format string writing since the value is defined before the user input statement. The length of the buffer we give replaces the permission level with $n.
+	(3) Whew, you are finally done with the homework.
