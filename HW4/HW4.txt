@@ -2,10 +2,10 @@ Homework 4 Answers
 
 Question 1: 
 	(1) '; INSERT INTO users (username, password) VALUES ('username', 'password');--
-	(2) To stop or minimize the risk of SQL injections, you want to sanitize the user input. For starters, you could easily remove ;'s and --'s for user input.
+	(2) To stop or minimize the risk of SQL injections, you want to sanitize the user input. For starters, you could easily remove ;'s and --'s for user input. A whitelist of appoved characters is highly recommended.
 Question 2:
 	(1) <<scriptscript> alert(document.cookie); </script>
-	(2) Would definetly need to sanitize user input better. Replace the scripts with spaces or simply just replace all <,>'s with spaces instead of looking for specific tags like <script>.
+	(2) Would definetly need to sanitize user input better. Replace the "script"'s with spaces or simply just replace all <,>'s with spaces instead of looking for specific tags like <script>. Though there still would likely be other workarounds
 Question 3:
 	(1) view-source:http://<ip>/index.php?theme=/etc/passwd
 	(2) To fix this sensitive website information from being leaked you should specify all of the themes that are allowed. In short, create a whitelist for the events that can be chosen.
@@ -18,7 +18,9 @@ Question 5:
 		http://<ip>/gallery.php?theme=images/upload671142738.jpg
 		To enable this script after it is on the website:
 		http://<ip>/gallery.php?theme=images/upload671142738.jpg&command=cat+/etc/passwd
-	(2) To avoid this, scrub through the images uploaded by users and sanitize them. You should be able to open the jpg file and read the image contents (rgb values).
+	(2) To avoid this, scrub through the images uploaded by users and sanitize them. You should be able to open the jpg file and read the image contents (rgb values). There should be no code embedded within legit image files.
 Question 6:
-	(1)
-	(2)
+	(1) ""; ?>" /> <<scriptscript> alert(document.cookie); </script>
+		Simplifying that down to this also works
+			" /> <<scriptscript> alert(document.cookie); </script>
+	(2) Obviously, again like all the other solutions is to sanitize user input. Keyword should also be defined and set by the user before it is called by the system. Setting it before also allows for sanitization checks. Though this would be a lot harder to implement without removing functionality. Set a whitelist of the approved characters to be allowed to user search.
